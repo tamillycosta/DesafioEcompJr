@@ -1,0 +1,47 @@
+# Ignorar o ambiente virtual
+venv/
+.env/
+
+# Ignorar configurações específicas do IDE
+.idea/
+.vscode/
+
+# Arquivos e diretórios de cache do Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pdb
+
+# Logs e arquivos temporários
+*.log
+*.tmp
+*.bak
+*.swp
+
+# Ignorar arquivos de banco de dados
+*.sqlite3
+db.sqlite3
+
+# Ignorar diretórios de builds
+build/
+dist/
+*.egg-info/
+
+# Arquivos gerados pelo pytest
+.pytest_cache/
+
+# Ignorar arquivos de configuração do Jupyter Notebook
+.ipynb_checkpoints/
+
+# Ignorar chaves e arquivos de configuração locais
+.env
+.env.*
+
+# Ignorar arquivos do sistema operacional
+.DS_Store
+Thumbs.db
+
+
+# Ignorar banco de dados
+database.db
