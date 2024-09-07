@@ -6,18 +6,27 @@ class Database():
     def __init__(self):
         self.db_name = 'database.db'
         
-    def  get_connection(self):  
-        server = sqlite3.connect(self.db_name)
-        server.row_factory = sqlite3.Row
-        return server
+    def get_connection(self):  
+        try:
+            connection = sqlite3.connect(self.db_name)
+            connection.row_factory = sqlite3.Row
+            return connection
+        except sqlite3.Error as e:
+            print(f"Erro ao conectar ao banco de dados: {e}")
+            return None
     
     def get_cursor(self):
         conn = self.get_connection()
-        return conn.cursor(), conn
+        if conn:
+            return conn.cursor(), conn
+        else:
+            return None, None
     
-    def close_connection(self,connection):
-        connection.commit()
-        connection.close()
+    def close_connection(self, connection):
+        if connection:
+            connection.commit()
+            connection.close()
+
         
     
     
