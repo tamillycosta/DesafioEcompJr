@@ -1,21 +1,20 @@
 from fastapi import APIRouter, HTTPException
-
 from backend.schemas.schemasUser import UserCreateRequest
-from backend.crud.user_crud import AdminUserCrud
+from backend.crud.user_adm_crud import AdminUserCrud
 
 
 admin = AdminUserCrud()
-
 router = APIRouter()
 
-@router.post("/users/")   
+
+@router.post("/users/create")   
 async def create_user_router(user: UserCreateRequest):
+    
     try:
         admin.create_user(
             username = user.username,
             password = user.password,
             email = user.email,
-            is_admin= user.is_admin
         )
         return {"Usuario criado com sucerro"}
     except  Exception as e:
@@ -24,11 +23,12 @@ async def create_user_router(user: UserCreateRequest):
     
 
 @router.delete("/users/{user_id}", status_code=204)
-async def delete_user_router(user: int):
-   try:
-       admin.delete_user(user)
-   except Exception as e :
+async def delete_user_router(user_id: int):
+    try:
+        admin.delete_user(user_id)
+    except Exception as e:
         raise HTTPException(status_code=500, detail=f"Erro ao deletar usuário: {e}")
+
 
 
 @router.get("/users/{user_id}")
