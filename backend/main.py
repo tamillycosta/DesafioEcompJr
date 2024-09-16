@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from backend.database.database import Database, TableCreator
-from backend.routers import admin_user_routers, users_routers
+from backend.routers import users_routers, admin_user_routers, task_routers
 from fastapi.middleware.cors import CORSMiddleware
 
 
@@ -30,5 +30,7 @@ async def root():
 
 app.include_router(admin_user_routers.router, prefix="/api/v1")
 app.include_router(users_routers.router, prefix="/api/v1")
+app.include_router(task_routers.router, prefix="/api/v1")
+
 
 # Outras rotas e configurações do FastAPI podem ser adicionadas aqui
