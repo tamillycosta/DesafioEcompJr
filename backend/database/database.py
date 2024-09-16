@@ -36,20 +36,34 @@ class TableCreator():
         self.database = database
         
      
-    def create_users_table(self):
+    def create_regular_users_table(self):
         """Cria a tabela de usuários no banco de dados se não existir."""
         cursor, conn = self.database.get_cursor()
         cursor.execute('''
-            CREATE TABLE IF NOT EXISTS users (
+        CREATE TABLE IF NOT EXISTS users (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            username TEXT UNIQUE NOT NULL,
+            password TEXT NOT NULL,
+            email TEXT UNIQUE NOT NULL
+        )
+    ''')
+        conn.commit()
+        self.database.close_connection(conn)
+        
+        
+    def create_adm_users_table(self):
+        """Cria a tabela de usuários no banco de dados se não existir."""
+        cursor, conn = self.database.get_cursor()
+        cursor.execute('''
+            CREATE TABLE IF NOT EXISTS adm (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 username TEXT UNIQUE NOT NULL,
                 password TEXT NOT NULL,
-                email TEXT UNIQUE NOT NULL,
-                is_admin BOOLEAN DEFAULT FALSE
+                email TEXT UNIQUE NOT NULL
             )
         ''')
+        conn.commit()
         self.database.close_connection(conn)
-        
         
     
     def create_tasks_table(self):
@@ -62,8 +76,7 @@ class TableCreator():
                 description TEXT,
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                 due_date TIMESTAMP,
-                status TEXT CHECK(status IN ('concluída', 'em aberto', 'em andamento')),
-                user_id INTEGER,
+                status TEXT CHECK(status  IN ('concluída', 'em aberto', 'em andamento')),
                 FOREIGN KEY (user_id) REFERENCES users (id)
             )
         ''')
@@ -78,8 +91,8 @@ class TableCreator():
             CREATE TABLE IF NOT EXISTS task_users (
                 task_id INTEGER,
                 user_id INTEGER,
-                FOREIGN KEY (task_id) REFERENCES tasks (id),
-                FOREIGN KEY (user_id) REFERENCES users (id),
+                FOREIGN KEY (task_id) REFERENCES tasks (id) ON DELETE CASCADE,
+                FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE,
                 PRIMARY KEY (task_id, user_id)
             )
         ''')
@@ -89,7 +102,8 @@ class TableCreator():
 
     def create_tables(self):
         """Cria todas as tabelas no banco de dados se não existirem."""
-        self.create_users_table()
+        self.create_regular_users_table()
+        self.create_adm_users_table()
         self.create_tasks_table()
         self.create_task_users_table()
        
