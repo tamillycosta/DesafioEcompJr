@@ -1,0 +1,115 @@
+/* Estilos da página de tarefas */
+.task-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(135deg, #7f00ff, #e100ff);
+  color: #ffffff;
+  min-height: 100vh;
+  overflow: hidden;
+  position: relative; /* Para posicionar o logo absoluto */
+}
+
+/* Botão de logo no canto superior direito */
+.logo-container {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  z-index: 1000; /* Garante que o logo esteja acima dos outros elementos */
+}
+
+.logo-container .logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.logo-container:hover {
+  transform: scale(1.1);
+}
+
+/* Conteúdo principal */
+.main-content {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 30px;
+  margin-top: 80px; /* Ajuste para não ficar escondido atrás do logo */
+  width: 80%;
+  max-width: 1000px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+}
+
+/* Cabeçalho */
+h1 {
+  font-family: 'Arial Black', sans-serif;
+  margin-bottom: 20px;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+/* Input e botão de adicionar tarefa */
+.task-input {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.task-input input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+}
+
+.add-task-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  background-color: #ffa500;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.add-task-button:hover {
+  background-color: #ff8c00;
+  transform: scale(1.05);
+}
+
+/* Lista de tarefas */
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.task-item {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.delete-task-button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 10px;
+  background-color: #ff4d4d;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.delete-task-button:hover {
+  background-color: #ff1a1a;
+  transform: scale(1.05);
+}
