@@ -13,13 +13,11 @@ const HomePage = () => {
         <div className="menu-toggle" onClick={toggleMenu}>
           <span className={`bar ${menuOpen ? 'open' : ''}`}></span>
           <span className={`bar ${menuOpen ? 'open' : ''}`}></span>
-          <span className={`bar ${menuOpen ? 'open' : ''}`}></span>
         </div>
         
         {/* Menu de navegação */}
         <nav className={`nav ${menuOpen ? 'open' : ''}`}>
           <ul>
-            <li><a href="/taskpage">Task Page</a></li>
             <li><a href="/register">Register</a></li>
             <li><a href="/login">Login</a></li>
           </ul>
@@ -35,10 +33,6 @@ const HomePage = () => {
             <a href="/login" className="button">Login</a>
           </div>
 
-          {/* Botão Ver Tarefas logo abaixo dos botões Cadastrar e Login */}
-          <div className="tasks-button-container">
-            <a href="/taskpage" className="tasks-button">Ver Tarefas</a>
-          </div>
         </div>
       </section>
 

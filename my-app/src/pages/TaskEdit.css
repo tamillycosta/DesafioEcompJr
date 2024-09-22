@@ -1,0 +1,75 @@
+/* Estilos para a tela de edição de tarefas */
+.task-edit-modal {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    position: relative;
+    max-width: 500px; /* Largura máxima da modal */
+    margin: 50px auto; /* Centraliza a modal na tela */
+  }
+  
+  .task-edit-modal h2 {
+    color: #ffffff;
+    font-family: 'Arial Black', sans-serif;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .task-edit-modal form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .task-edit-modal label {
+    color: #ffffff;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  .task-edit-modal input[type="text"],
+  .task-edit-modal input[type="datetime-local"],
+  .task-edit-modal textarea,
+  .task-edit-modal select {
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+  }
+  
+  .task-edit-modal button {
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .task-edit-modal .button-group {
+    display: flex;
+    justify-content: space-between; /* Espaço entre os botões */
+  }
+  
+  .task-edit-modal button[type="button"] {
+    background-color: #ffa500;
+    color: #1e1e1e;
+  }
+  
+  .task-edit-modal button[type="button"]:hover {
+    background-color: #e69500;
+    transform: scale(1.1);
+  }
+  
+  .task-edit-modal button[type="button"]:last-child {
+    background-color: #ff4d4d;
+    color: #ffffff;
+  }
+  
+  .task-edit-modal button[type="button"]:last-child:hover {
+    background-color: #e60000;
+  }
+  

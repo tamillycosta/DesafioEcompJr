@@ -251,3 +251,38 @@
   transform: scale(1.1);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
+
+/* Input e botão de adicionar tarefa */
+.add-user-section {
+  margin-bottom: 20px;
+}
+
+.user-input {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.user-input input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+}
+
+.add-user-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  background-color: #ffa500;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.add-user-button:hover {
+  background-color: #ff8c00;
+  transform: scale(1.05);
+}

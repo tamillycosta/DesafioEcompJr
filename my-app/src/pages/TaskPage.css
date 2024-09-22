@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: linear-gradient(135deg, #7f00ff, #e100ff);
+  background: linear-gradient(135deg, #7f00ff, #0072ff);
   color: #ffffff;
   min-height: 100vh;
   overflow: hidden;
@@ -46,16 +46,36 @@
 /* Cabeçalho */
 h1 {
   font-family: 'Arial Black', sans-serif;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   color: #ffffff;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Barra de pesquisa */
+.task-search {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.task-search input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  font-size: 16px;
 }
 
 /* Input e botão de adicionar tarefa */
+.add-task-section {
+  margin-bottom: 20px;
+}
+
 .task-input {
   display: flex;
   gap: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .task-input input {
@@ -83,33 +103,73 @@ h1 {
 }
 
 /* Lista de tarefas */
-.task-list {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+.table-container {
+  width: 100%;
 }
 
-.task-item {
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.admin-table th, .admin-table td {
+  padding: 10px;
+  text-align: left;
+}
+
+.admin-table th {
   background: rgba(255, 255, 255, 0.2);
-  border-radius: 10px;
-  padding: 15px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-.delete-task-button {
+.admin-table tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Ações dos botões */
+.edit-button, .delete-button, .save-button, .cancel-button {
   padding: 5px 10px;
   border: none;
   border-radius: 10px;
-  background-color: #ff4d4d;
-  color: #ffffff;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.delete-task-button:hover {
+.edit-button {
+  background-color: #4CAF50; /* Verde */
+  color: #ffffff;
+}
+
+.edit-button:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+}
+
+.delete-button {
+  background-color: #ff4d4d; /* Vermelho */
+  color: #ffffff;
+}
+
+.delete-button:hover {
   background-color: #ff1a1a;
+  transform: scale(1.05);
+}
+
+.save-button {
+  background-color: #0072ff; /* Azul */
+  color: #ffffff;
+}
+
+.save-button:hover {
+  background-color: #005bb5;
+  transform: scale(1.05);
+}
+
+.cancel-button {
+  background-color: #aaa; /* Cinza */
+  color: #ffffff;
+}
+
+.cancel-button:hover {
+  background-color: #888;
   transform: scale(1.05);
 }

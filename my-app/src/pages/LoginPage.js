@@ -14,7 +14,7 @@ const LoginPage = () => {
     try {
       const response = await loginUser({ username, password });
 
-      if (response && response.success) {
+      if (response) {
         // Redirecionar para a página de tarefas se o login for bem-sucedido
         navigate('/tasks'); // redirecione para a página correta
       } else {
