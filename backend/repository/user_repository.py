@@ -1,98 +1,109 @@
-from backend.models.user_model import User
-from backend.database.database import Database
+from sqlalchemy.orm import Session
+from sqlalchemy.exc import IntegrityError
+from  backend.database.database import User
+
 from typing import Optional, List
-import sqlite3
+
+
+
 
 class UserRepository:
     
-    def __init__(self):
-        self.db = Database()
+    def __init__(self, db: Session):
+        self.db = db
 
 
     def create_user(self, user: User) -> None:
-       
-        cursor, conn = self.db.get_cursor()
         try:
-            cursor.execute('''
-                INSERT INTO users (username, password, email)
-                VALUES (?, ?, ?)
-            ''', (user.username, user.password, user.email))
-            conn.commit()
-     
-        except sqlite3.IntegrityError as e:
-            print(f"Erro de integridade ao criar usuário: {e}")
+            self.db.add(user)
+            self.db.commit()
+        except IntegrityError as e:
+            self.db.rollback() 
+            return e
         except Exception as e:
-            print(f"Erro ao criar usuário: {e}")
-        finally:
-            cursor.close() 
-            self.db.close_connection(conn)
-
+            self.db.rollback()
+            return e
 
     def get_user(self, username: str) -> Optional[User]:
-        
-        cursor, conn = self.db.get_cursor()
         try:
-            cursor.execute('''
-                SELECT * FROM users WHERE username = ?
-            ''', (username,))
-            row = cursor.fetchone()
-            if row:
-                return User(username=row['username'], password=row['password'], email=row['email'])
-            return None
-    
+            return self.db.query(User).filter(User.username == username).first()  
         except Exception as e:
-            print(f"ERRO AO BUSCAR USER: {e}")
-        finally:
-            cursor.close() 
-            self.db.close_connection(conn)
-
-
+         
+            return e
+        
     def get_all_users(self) -> List[User]:
-       
-        cursor, conn = self.db.get_cursor()
         try:
-            cursor.execute('SELECT * FROM users')
-            rows = cursor.fetchall()
-        
+            return self.db.query(User).all()  
         except Exception as e:
-            print(f"Erro ao listar usuário: {e}")
-        finally:
-            cursor.close() 
-            self.db.close_connection(conn)
-            return [User(username=row['username'], password=row['password'], email=row['email']) for row in rows]
-
-
+         
+            return []
+        
     def update_user(self, id: int, user: User) -> None:
-        
-        cursor, conn = self.db.get_cursor()
         try:
-            cursor.execute('''
-                UPDATE users
-                SET password = ?, email = ?
-                WHERE id = ?
-            ''', (user.password, user.email, id))
-            conn.commit()
+            existing_user = self.db.query(User).filter(User.id == id).first()  
+            if existing_user:
+                existing_user.username = user.username
+                existing_user.password = user.password 
+                existing_user.email = user.email
+                self.db.commit()
+            else:
+               return None 
         except Exception as e:
-            print(f"Erro ao editar usuário: {e}")
-        finally:
-            cursor.close() 
-            self.db.close_connection(conn)
-        
-        
-
+            self.db.rollback() 
+            return e
+           
+    
     def delete_user(self, id: int) -> None:
-      
-        cursor, conn = self.db.get_cursor()
         try:
-            cursor.execute('''
-                DELETE FROM users WHERE id = ?
-            ''', (id,))
-            conn.commit()
+            user = self.db.query(User).filter(User.id == id).first() 
+            if user:
+                self.db.delete(user)  
+                self.db.commit()
+            else:
+               return None
         except Exception as e:
-            print(f"Erro ao editar usuário: {e}")
-        finally:
-            cursor.close() 
-            self.db.close_connection(conn)
-        
-       
+            self.db.rollback()  
+            return e
 
+  
+
+    def get_user(self, username: str) -> Optional[User]:
+        print(f"Buscando usuário: {username}")
+        user = self.db.query(User).filter(User.username == username).first()
+        print(f"Resultado da busca: {user}")
+        return user
+
+        
+        
+        
+    def get_all_users(self) -> List[User]:
+        try:
+            return self.db.query(User).all()  # Busca todos os usuários
+        except Exception as e:
+         
+            return []
+        
+    def update_user(self, id: int, user: User) -> None:
+        try:
+            existing_user = self.db.query(User).filter(User.id == id).first()  
+            if existing_user:
+                existing_user.username = user.username
+                existing_user.password = user.password 
+                existing_user.email = user.email
+                self.db.commit()
+            else:
+               return None 
+        except Exception as e:
+            self.db.rollback() 
+           
+    
+    def delete_user(self, id: int) -> None:
+        try:
+            user = self.db.query(User).filter(User.id == id).first() 
+            if user:
+                self.db.delete(user)  
+                self.db.commit()
+            else:
+               return None
+        except Exception as e:
+            self.db.rollback()  
