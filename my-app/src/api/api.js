@@ -1,11 +1,9 @@
 const API_URL = 'http://localhost:8000/api/v1/'; // URL do back-end
 
 
-
 export const loginUser = async (credentials) => {
   try {
-    const { username, password } = credentials;
-    const response = await fetch(`http://localhost:8000/api/v1/login?username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`, {
+    const response = await fetch(`http://localhost:8000/api/v1/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -18,12 +16,19 @@ export const loginUser = async (credentials) => {
       throw new Error(errorDetails.detail || 'Login falhou');
     }
 
-    return response.json();
+    const userData = await response.json();
+    localStorage.setItem('user', JSON.stringify(userData));  // Salvando os dados do usuário
+    
+    return userData;
   } catch (error) {
     console.error('Erro ao fazer login:', error);
     throw error;
   }
 };
+
+
+
+
 
 
 
@@ -51,6 +56,29 @@ export const loginADM = async (credentials) => {
 };
 
 
+export const addUser = async (user) => {
+  try {
+    const response = await fetch('http://localhost:8000/api/v1/adm/create-user', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(user),
+    });
+
+    if (!response.ok) {
+      throw new Error('Registration failed');
+    }
+
+    return response.json(); // Retorna a resposta JSON
+  } catch (error) {
+    console.error('Error during registration:', error);
+    throw error;
+  }
+};
+
+
+
 // Função para excluir um usuário
 export const deleteUser = async (userId) => {
   const response = await fetch(`http://localhost:8000/api/v1/adm/delete-user${userId}`, {
@@ -76,8 +104,8 @@ export const updateUser = async (userId, userData) => {
     
 
     if (!response.ok) {
-      const errorData = await response.json(); // Verifique os dados de erro que a API está retornando
-      throw new Error(`Erro ao atualizar usuário: ${JSON.stringify(errorData)}`);
+      const errorData = await response.json(); 
+            throw new Error(`Erro ao atualizar usuário: ${JSON.stringify(errorData)}`);
     }
 
     return await response.json();
@@ -86,8 +114,6 @@ export const updateUser = async (userId, userData) => {
     throw error;
   }
 };
-
-
 
 
 
@@ -113,6 +139,7 @@ export const registerUser = async (user) => {
     throw error;
   }
 };
+
 
 
 export const registerAdm = async (user) => {
@@ -151,22 +178,14 @@ export const getUsers = async () => {
 };
 
 
-// Função para adicionar uma tarefa
-export const addTask = async (task) => {
-  const response = await fetch(`${API_URL}/`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(task),
-  });
-  return response.json();
-};
-
-// Função para excluir uma tarefa
-export const deleteTask = async (taskId) => {
-  const response = await fetch(`${API_URL}/tasks/${taskId}`, {
-    method: 'DELETE',
-  });
-  return response.json();
+export const getUser = async (username) => {
+  try {
+    const response = await fetch(`http://localhost:8000/api/v1/adm-get/${username}`);
+    const userData = await response.json();
+    console.log(username)
+    return userData.id;  // Retorna o ID do usuário
+  } catch (error) {
+    console.error("Erro ao buscar ID do usuário:", error);
+    return null;
+  }
 };
