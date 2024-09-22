@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from backend.database.database import Database, TableCreator
+
 from backend.routers import users_routers, admin_user_routers, task_routers
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -7,21 +7,19 @@ from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
-
-database = Database()
-table_creator = TableCreator(database)
-table_creator.create_tables()
-
-
-
-# Adiciona o middleware CORS
+origins = [
+    "http://localhost:3000",  # Adicione a origem do seu front-end
+]
+    
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  
+    allow_origins=origins,  # Você pode especificar os domínios permitidos aqui
     allow_credentials=True,
-    allow_methods=["*"],  
-    allow_headers=["*"],  
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
+
+
 
 
 @app.get("/")  
