@@ -1,10 +1,11 @@
 from  backend.service.task_service import TaskService
 from backend.models.tasks_model import Task
+from sqlalchemy.orm import Session
 
 class TaskController:
     
-    def __init__(self) -> None:
-        self.task_service = TaskService()
+    def __init__(self, db: Session ) -> None:
+        self.task_service = TaskService(db)
         
     def create_task(self,task:Task):
         self.task_service.create_task(task)
