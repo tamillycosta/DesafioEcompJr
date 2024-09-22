@@ -30,14 +30,16 @@ Este é um projeto de uma API para gerenciar uma lista de tarefas, desenvolvido 
 
 3. **Instale as dependências:**
 
-     ``` pip install -r requirements.txt
+     ```
+      pip install -r requirements.txt
 
 
 **Como Executar o Projeto**
 
 1. **Execute o servidor FastAPI**:
 
-    `` uvicorn main:app --reload
+    `` python/python3 main.py
+
 
 
     
