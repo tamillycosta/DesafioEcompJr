@@ -43,7 +43,7 @@ A camada de Repository gerencia a conexão direta com o banco de dados e impleme
 A camada de Service contém a lógica de negócios e realiza a comunicação com o repositório. Ela é responsável por processar as requisições e aplicar regras de negócio, antes de interagir com o repositório para realizar operações de leitura ou escrita no banco de dados.
 
 
-4.1 Controller (Controlador)
+4 Controller (Controlador)
 A camada de Controller processa as requisições HTTP que chegam à aplicação e coordena a resposta correta através da comunicação com os serviços. É responsável por lidar com as entradas do usuário (via rotas HTTP) e garantir que as respostas apropriadas sejam devolvidas.
 
 
