@@ -41,25 +41,34 @@ dist/
 # Ignorar arquivos do sistema operacional
 .DS_Store
 Thumbs.db
-
+.Trash-*
 
 # Ignorar banco de dados
 database.db
 
-# Node modules
+# Node.js
 node_modules/
+npm-debug.log
+yarn-error.log
+.pnp/
+.pnp.js
 
-# Build output
+# Build directories
 build/
+dist/
 
 # Logs
+logs/
 *.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-# Dependency directories
-jspm_packages/
+# Coverage files gerados por testes
+coverage/
 
-# Environment variables
-.env
+# Miscellaneous
+*.lock
 .env.local
 .env.development.local
 .env.test.local
@@ -72,10 +81,6 @@ out/
 # Storybook build output
 storybook-static/
 
-# IDE specific files
-.vscode/
-.idea/
-
 # macOS system files
 .DS_Store
 
@@ -85,7 +90,23 @@ Thumbs.db
 # Linux system files
 .Trash-*
 
-# npm package-lock
-package-lock.json
+# IDE specific files
+.vscode/
+.idea/
+*.swp
+*.swo
 
+# Logs de erro do npm/yarn
+npm-debug.log
+yarn-debug.log
+yarn-error.log
 
+# Build output
+build/
+dist/
+
+# Dependency directories
+jspm_packages/
+
+# Miscellaneous lock files
+*.lock
