@@ -2,7 +2,7 @@
 
 ## Introdução
 
-Este é um projeto de uma aplicação para gerenciar uma lista de tarefas, desenvolvido utilizando o **FastAPI**, **SQLite** e **ReactJS**. A proposta é criar uma interface amigável onde os usuários podem adicionar, editar e remover tarefas de forma intuitiva, melhorando a produtividade e a organização pessoal.
+Este é um projeto de uma aplicação para gerenciar uma lista de tarefas. A proposta é criar uma interface amigável onde os usuários podem adicionar, editar e remover tarefas de forma intuitiva, melhorando a produtividade e a organização pessoal.
 
 
 
