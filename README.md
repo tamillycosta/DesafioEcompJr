@@ -1,6 +1,6 @@
 # DesafioEcompJr
 
-# Backend do Projeto [Nome do Projeto]
+# Backend do Projeto To-do List
 
 Este documento descreve a estrutura do backend, detalhando o banco de dados, endpoints, e o funcionamento do projeto.
 
