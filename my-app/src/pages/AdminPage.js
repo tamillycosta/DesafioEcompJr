@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { getUsers, getTasks, deleteUser, updateUser, addUser } from '../api/api';
-import { updateTask, deleteTask } from '../api/TaskApi'; 
+import { getUsers, deleteUser, updateUser, addUser } from '../api/AdmApi';
+import { updateTask, deleteTask , getTasks} from '../api/TaskApi'; 
 import './AdminPage.css';
 import logo from '../assets/logo.png';
 
@@ -38,6 +38,8 @@ const AdminPage = () => {
     navigate('/');
   };
 
+
+  // crud do usuário 
   const handleDeleteUser = async (userId) => {
     await deleteUser(userId);
     setUsers(users.filter(user => user.id !== userId));
@@ -68,7 +70,9 @@ const AdminPage = () => {
       console.error('Preencha todos os campos.');
     }
   };
+  
 
+  // crud das tasks 
   const handleDeleteTask = async (taskId) => {
     try {
       await deleteTask(taskId);
@@ -91,6 +95,7 @@ const AdminPage = () => {
       status: updatedTaskData.status || task.status,
       description: task.description,
       due_date: task.due_date,
+      user_id : task.user_id,
       create_at: task.create_at || '',
     };
   

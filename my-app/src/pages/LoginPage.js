@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { loginUser } from '../api/api';
+import { loginUser } from '../api/UsersApi';
 import { useNavigate } from 'react-router-dom';
 import './LoginPage.css';
 
@@ -16,13 +16,13 @@ const LoginPage = () => {
 
       if (response) {
         // Redirecionar para a página de tarefas se o login for bem-sucedido
-        navigate('/tasks'); // redirecione para a página correta
+        navigate('/tasks'); 
       } else {
         setError('Não foi possível autenticar. Por favor, tente novamente.');
       }
     } catch (error) {
       console.error('Erro ao fazer login:', error);
-      setError('Ocorreu um erro no login. Tente novamente.');
+   
     }
   };
 
@@ -60,7 +60,7 @@ const LoginPage = () => {
             Não tem uma conta? <a href="/register">Cadastre-se</a>
           </p>
           <p className="signup-link">
-            Entrar como Adm? <a href="/login-admin">Logar como Adm</a>
+             <a href="/login-admin">Logar como Adm</a>
           </p>
         </div>
       </div>

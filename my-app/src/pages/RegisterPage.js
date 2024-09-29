@@ -1,19 +1,20 @@
 import React, { useState } from 'react';
 import './RegisterPage.css';
-import { registerUser } from '../api/api';
-import { useNavigate } from 'react-router-dom'; // Importa o hook useNavigate
+import { registerUser } from '../api/UsersApi';
+import { useNavigate } from 'react-router-dom'; 
 
 const RegisterPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [username, setUsername] = useState('');
-  const [error, setError] = useState(null); // Estado para armazenar erros
-  const navigate = useNavigate(); // Hook para redirecionamento
+  const [error, setError] = useState(null); 
+  const navigate = useNavigate(); 
+  
 
-  const handleRegister = async (e) => { // Torna a função assíncrona
+  const handleRegister = async (e) => { 
     e.preventDefault();
     try {
-      // Corrige a chamada da função registerUser com os parâmetros corretos
+      
       const response = await registerUser({ username, password, email });
 
       if (response && response.success) {
@@ -34,7 +35,7 @@ const RegisterPage = () => {
         <form onSubmit={handleRegister} className="register-form">
           <div className="form-group">
             <input 
-              type="text" // Tipo corrigido
+              type="text" 
               value={username} 
               onChange={(e) => setUsername(e.target.value)} 
               placeholder="Seu Username" 
@@ -44,7 +45,7 @@ const RegisterPage = () => {
           </div>
           <div className="form-group">
             <input 
-              type="email" // Tipo corrigido
+              type="email" 
               value={email} 
               onChange={(e) => setEmail(e.target.value)} 
               placeholder="Seu email" 

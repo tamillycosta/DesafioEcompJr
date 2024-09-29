@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import './AdminRegisterPage.css';
-import { registerAdm } from '../api/api';
-import { useNavigate } from 'react-router-dom'; // Importa o hook useNavigate
+import { registerAdm } from '../api/AdmApi';
+import { useNavigate } from 'react-router-dom'; 
 
 const RegisterPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [username, setUsername] = useState('');
-  const [error, setError] = useState(null); // Estado para armazenar erros
+  const [error, setError] = useState(null); 
   const navigate = useNavigate(); 
 
-  const handleRegister = async (e) => { // Torna a função assíncrona
+  const handleRegister = async (e) => { 
     e.preventDefault();
     try {
      

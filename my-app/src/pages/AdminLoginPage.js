@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { loginADM } from '../api/api';
+import { loginADM } from '../api/AdmApi';
 import { useNavigate } from 'react-router-dom';
 import './AdminLoginPage.css';
 

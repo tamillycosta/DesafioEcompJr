@@ -14,46 +14,49 @@ const TaskPage = () => {
   const [editingTaskId, setEditingTaskId] = useState(null);
   const [updatedTaskData, setUpdatedTaskData] = useState({ title: '', status: '' });
 
+
+  
+  const fetchTasks = async () => {
+    setLoading(true);
+    const user = JSON.parse(localStorage.getItem('user'));
+
+    if (!user || !user.id) {
+      console.error("Usuário não encontrado no localStorage.");
+      setError("Usuário não encontrado.");
+      setLoading(false);
+      return;
+    }
+
+    try {
+      const data = await getUserTask(user.id);
+      console.log('Tarefas recebidas:', data);
+      setTasks(data || []);
+    } catch (error) {
+      console.error('Erro ao buscar tarefas:', error);
+      setError('Erro ao carregar tarefas.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Chamando fetchTasks dentro do useEffect para o carregamento inicial
   useEffect(() => {
-    const fetchTasks = async () => {
-      setLoading(true);
-      const user = JSON.parse(localStorage.getItem('user'));
-
-      if (!user || !user.id) {
-        console.error("Usuário não encontrado no localStorage.");
-        setError("Usuário não encontrado.");
-        setLoading(false);
-        return;
-      }
-
-      try {
-        const data = await getUserTask(user.id);
-        console.log('Tarefas recebidas:', data);
-        setTasks(data || []);
-      } catch (error) {
-        console.error('Erro ao buscar tarefas:', error);
-        setError('Erro ao carregar tarefas.');
-      } finally {
-        setLoading(false);
-      }
-    };
-
     fetchTasks();
   }, []);
 
 
-
+  // Crud das tarefas 
   const handleAddTask = async () => {
     const user = JSON.parse(localStorage.getItem('user'));
-  
+
     if (!user || !user.id) {
       console.error("Usuário não encontrado no localStorage.");
       return;
     }
-  
+
     const userId = user.id;
     const currentDateTime = new Date().toISOString();
-  
+
     if (newTask.trim() && newTaskDuration.trim()) {
       try {
         const task = await addTask({
@@ -64,22 +67,23 @@ const TaskPage = () => {
           create_at: currentDateTime,
           user_id: userId
         });
-  
+
         console.log('Tarefa adicionada:', task);
-        if (task && task.title) {
-          setTasks((prevTasks) => [...prevTasks, task]); // Adiciona a nova tarefa ao estado
-          setNewTask('');
-          setNewTaskStatus('em aberto');
-          setNewTaskDuration('');
-        } else {
-          console.error('Tarefa não válida recebida da API:', task);
-        }
+        
+        
+        await fetchTasks();
+
+       
+        setNewTask('');
+        setNewTaskStatus('em aberto');
+        setNewTaskDuration('');
+        
       } catch (error) {
         console.error('Erro ao adicionar tarefa:', error);
       }
     }
   };
-  
+
   const handleDeleteTask = (id) => {
     deleteTask(id)
       .then(() => setTasks(tasks.filter((task) => task.id !== id)))
@@ -121,6 +125,9 @@ const TaskPage = () => {
     task.title && task.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+
+
+  
   return (
     <div className="task-page">
       <div className="logo-container" onClick={() => window.location.href = '/'}>

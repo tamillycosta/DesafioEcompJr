@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './TaskEdit.css'; // Certifique-se de que o arquivo CSS está no mesmo diretório
+import './TaskEdit.css'; 
 
 const TaskEdit = ({ task, onClose, onSave }) => {
   const [title, setTitle] = useState(task.title);
@@ -15,8 +15,8 @@ const TaskEdit = ({ task, onClose, onSave }) => {
       due_date: dueDate,
       status,
     };
-    onSave(updatedTask); // Chama a função de callback para salvar a task
-    onClose(); // Fecha a tela de edição
+    onSave(updatedTask); 
+    onClose(); 
   };
 
   return (
