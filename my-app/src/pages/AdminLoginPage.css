@@ -1,0 +1,85 @@
+.adm-login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #7f00ff, #e100ff);
+  }
+  
+  .adm-login-form-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 400px;
+    animation: fadeIn 1.2s ease;
+  }
+  
+  .adm-login-title {
+    font-size: 2rem;
+    color:  #7f00ff;
+    margin-bottom: 20px;
+  }
+  
+  .adm-login-form .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .adm-login-input {
+    width: 100%;
+    padding: 15px;
+    font-size: 1rem;
+    border: 2px solid  #7f00ff;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+  
+  .adm-login-input:focus {
+    border-color:  #7f00ff;
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 114, 255, 0.3);
+  }
+  
+  .adm-login-btn {
+    width: 100%;
+    padding: 15px;
+    background-color:  #7f00ff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .adm-login-btn:hover {
+    background-color:  #7f00ff;
+  }
+  
+  .adm-signup-link {
+    color: #7f00ff;
+    margin-top: 20px;
+    font-size: 0.9rem;
+  }
+  
+  .adm-signup-link a {
+    color:  #7f00ff;
+    text-decoration: none;
+  }
+  
+  .adm-signup-link a:hover {
+    text-decoration: underline;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  

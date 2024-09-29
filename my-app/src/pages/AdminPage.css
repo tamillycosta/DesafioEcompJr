@@ -1,0 +1,288 @@
+/* Estilos da página de administração */
+.admin-page {
+  display: flex;
+  background: linear-gradient(135deg, #7f00ff, #e100ff);
+  color: #ffffff;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* Barra lateral de navegação */
+.sidebar {
+  width: 250px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 20px;
+  margin: 20px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+}
+
+.sidebar h2 {
+  color: #ffa500;
+  margin-bottom: 1rem;
+  font-family: 'Arial Black', sans-serif;
+}
+
+.sidebar nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar nav ul li {
+  margin: 15px 0;
+}
+
+.sidebar nav ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+
+.sidebar nav ul li a:hover {
+  color: #ffa500;
+  transform: scale(1.1);
+}
+
+/* Conteúdo principal */
+.main-content {
+  flex: 1;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+}
+
+.main-content section {
+  margin-bottom: 40px;
+}
+
+.main-content h2 {
+  font-family: 'Arial Black', sans-serif;
+  margin-bottom: 20px;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+/* Tabelas de administração */
+.table-container {
+  overflow-x: auto;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 15px;
+  padding: 10px;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  color: #ffffff;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.admin-table th, .admin-table td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.admin-table th {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.admin-table tr:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transition: background 0.3s ease;
+}
+
+/* Botões de ação */
+.edit-button, .delete-button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.edit-button {
+  background-color: #ffa500;
+  color: #1e1e1e;
+}
+
+.delete-button {
+  background-color: #ff4d4d;
+  color: #ffffff;
+}
+
+.edit-button:hover, .delete-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.edit-button:hover {
+  background-color: #e69500;
+}
+
+.delete-button:hover {
+  background-color: #e60000;
+}
+
+/* Estilos da página de administração */
+.admin-page {
+  display: flex;
+  background: linear-gradient(135deg, #7f00ff, #e100ff);
+  color: #ffffff;
+  min-height: 100vh;
+  overflow: hidden;
+  position: relative; /* Para posicionar o logo absoluto */
+}
+
+/* Botão de logo no canto superior direito */
+.logo-container {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  z-index: 1000; /* Garante que o logo esteja acima dos outros elementos */
+}
+
+.logo-container .logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.logo-container:hover {
+  transform: scale(1.1);
+}
+
+/* Barra lateral de navegação */
+.sidebar {
+  width: 250px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 20px;
+  margin: 20px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+}
+
+/* Conteúdo principal */
+.main-content {
+  flex: 1;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  position: relative; /* Para garantir que o z-index do logo funcione corretamente */
+}
+
+.main-content section {
+  margin-bottom: 40px;
+}
+
+.main-content h2 {
+  font-family: 'Arial Black', sans-serif;
+  margin-bottom: 20px;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+/* Tabelas de administração */
+.table-container {
+  overflow-x: auto;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 15px;
+  padding: 10px;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  color: #ffffff;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.admin-table th, .admin-table td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.admin-table th {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.admin-table tr:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transition: background 0.3s ease;
+}
+
+/* Botões de ação */
+.edit-button, .delete-button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.edit-button {
+  background-color: #ffa500;
+  color: #1e1e1e;
+}
+
+.delete-button {
+  background-color: #ff4d4d;
+  color: #ffffff;
+}
+
+.edit-button:hover, .delete-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Input e botão de adicionar tarefa */
+.add-user-section {
+  margin-bottom: 20px;
+}
+
+.user-input {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.user-input input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+}
+
+.add-user-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  background-color: #ffa500;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.add-user-button:hover {
+  background-color: #ff8c00;
+  transform: scale(1.05);
+}

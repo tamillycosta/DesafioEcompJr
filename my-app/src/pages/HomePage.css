@@ -1,0 +1,448 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: #fff;
+    overflow-x: hidden; /* Evita o overflow horizontal */
+  }
+  
+  /* Header */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    position: relative;
+    z-index: 1000;
+  }
+  
+  .menu-toggle {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 35px;
+    height: 30px;
+    position: relative;
+    z-index: 1001;
+  }
+  
+  .menu-toggle .bar {
+    width: 100%;
+    height: 4px;
+    background: #fff; /* Tracinhos brancos */
+    margin: 5px 0;
+    border-radius: 5px;
+    transition: transform 0.3s, opacity 0.3s;
+  }
+  
+  .menu-toggle.open .bar:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 6px);
+  }
+  
+  .menu-toggle.open .bar:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .menu-toggle.open .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -6px);
+  }
+  
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.9);
+    width: 250px;
+    height: 100%;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    z-index: 1000;
+  }
+  
+  .nav.open {
+    transform: translateX(0);
+  }
+  
+  .nav ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+  }
+  
+  .nav ul li {
+    margin: 1rem 0;
+  }
+  
+  .nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    transition: color 0.3s;
+  }
+  
+  .nav ul li a:hover {
+    color: #1e90ff;
+  }
+  
+  /* Hero Section */
+  .hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90vh; /* Ajuste a altura para um visual mais equilibrado */
+    text-align: center;
+    background: url('https://source.unsplash.com/1600x900/?technology,workspace') no-repeat center center/cover;
+    color: #fff;
+    padding: 0 2rem;
+    position: relative;
+  }
+  
+  .hero-content {
+    max-width: 700px;
+  }
+  
+  .hero-content h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  }
+  
+  .hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .cta {
+    margin-top: 2rem;
+  }
+  
+  .button {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    margin: 0.5rem;
+    background: #1e90ff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  .button:hover {
+    background: #4682b4;
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+  }
+  
+  /* About Section */
+  .about {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: #fff;
+    color: #333;
+    border-top: 1px solid #ddd;
+  }
+  
+  .about h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .about p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+  }
+  
+  /* Footer */
+  footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 2rem 1rem;
+    border-top: 1px solid #444;
+  }
+  
+  .credits {
+    margin-top: 1rem;
+  }
+  
+  .credits p {
+    margin-bottom: 0.5rem;
+  }
+  
+  .credits a {
+    color: #1e90ff;
+    text-decoration: none;
+    transition: text-decoration 0.3s;
+  }
+  
+  .credits a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: #fff;
+    overflow-x: hidden; /* Evita o overflow horizontal */
+  }
+  
+  /* Header */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    position: relative;
+    z-index: 1000;
+  }
+  
+  /* Estilizando o menu hamburger */
+  .menu-toggle {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    z-index: 1001;
+  }
+  
+  .menu-toggle .bar {
+    width: 100%;
+    height: 4px;
+    background: #fff; /* Tracinhos brancos */
+    margin: 3px 0;
+    border-radius: 5px;
+    transition: transform 0.3s, opacity 0.3s;
+  }
+  
+  /* Animações para o menu aberto */
+  .menu-toggle.open .bar:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  
+  .menu-toggle.open .bar:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .menu-toggle.open .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+  
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.9);
+    width: 250px;
+    height: 100%;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    z-index: 1000;
+  }
+  
+  .nav.open {
+    transform: translateX(0);
+  }
+  
+  .nav ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+  }
+  
+  .nav ul li {
+    margin: 1rem 0;
+  }
+  
+  .nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    transition: color 0.3s;
+  }
+  
+  .nav ul li a:hover {
+    color: #1e90ff;
+  }
+  
+  /* Restante do código CSS permanece o mesmo */
+  
+  /* Estilos Globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: #fff;
+    overflow-x: hidden; /* Evita o overflow horizontal */
+  }
+  
+  /* Header */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    position: relative;
+    z-index: 1000;
+  }
+  
+  /* Botão para ver tarefas */
+  .tasks-button-container {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+    position: relative;
+  }
+  
+  .tasks-button {
+    background-color: #1e90ff;
+    color: #fff;
+    text-decoration: none;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: bounce 2s infinite;
+  }
+  
+  .tasks-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Animação de balanço */
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-10px);
+    }
+    60% {
+      transform: translateY(-5px);
+    }
+  }
+  
+  /* Restante do código CSS permanece o mesmo */
+  /* Botão para ver tarefas */
+
+  
+ 
+  /* Efeito de cor laranja ao passar o mouse */
+  .tasks-button:hover {
+    background-color: #ffa500; /* Cor laranja */
+    color: #fff;
+  }
+  
+  /* Rodapé atualizado */
+footer {
+  background-color: #111;
+  color: #fff;
+  padding: 2rem 5%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* Lado esquerdo do rodapé */
+.footer-left {
+  flex: 1;
+  min-width: 200px;
+  margin-right: 2rem;
+}
+
+.footer-left h4 {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+
+
+.footer-left a:hover {
+  text-decoration: underline;
+}
+
+/* Lado direito do rodapé */
+.footer-right {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer-right h4 {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+/* Botão para Instagram */
+.instagram-button {
+  display: inline-block;
+  background-color: #ffa500; /* Cor laranja para o botão */
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  margin-top: 0.5rem;
+  transition: background-color 0.3s ease;
+}
+
+.instagram-button:hover {
+  background-color: #ff8c00; /* Tom mais escuro de laranja ao passar o mouse */
+}
+
+ /* Estilo para os botões do GitHub */
+.github-button {
+  display: inline-block;
+  background-color: #ffa500; /* Cor laranja para o botão */
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  margin-top: 0.5rem;
+  transition: background-color 0.3s ease;
+}
+
+.github-button:hover {
+  background-color: #ff8c00; /* Tom mais escuro de laranja ao passar o mouse */
+}
+
