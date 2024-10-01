@@ -11,8 +11,8 @@ Este é um projeto de uma aplicação para gerenciar uma lista de tarefas. A pro
 
 
 ## Desenvolvedores 
-- Tamilly Costa Cerqueira (backend e integração)
-- Felipe Amorim do Carmo Silva ( frontend e gerenciamento das funções ) 
+- Tamilly Costa Cerqueira https://github.com/tamillycosta (backend e integração)
+- Felipe Amorim do Carmo Silva  https://github.com/luffysertao ( frontend e gerenciamento das funções ) 
 
 
 ### Tecnologias Utilizadas
