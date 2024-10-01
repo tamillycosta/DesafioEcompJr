@@ -9,6 +9,12 @@ Este é um projeto de uma aplicação para gerenciar uma lista de tarefas. A pro
 - **Gerenciamento de Tarefas:** Permitir que os usuários criem e mantenham uma lista de tarefas, facilitando o acompanhamento das atividades diárias.
 - **Perfil de Adm:** Permitir que administradores possam gerenciar outros usuários e tarefas.
 
+
+## Desenvolvedores 
+- Tamilly Costa Cerqueira (backend e integração)
+- Felipe Amorim do Carmo Silva ( frontend e gerenciamento das funções ) 
+
+
 ### Tecnologias Utilizadas
 
 - **FastAPI:** Um framework moderno e rápido para construir APIs com Python, que permite a criação de aplicações web de forma simples e eficiente.
@@ -21,6 +27,7 @@ Este é um projeto de uma aplicação para gerenciar uma lista de tarefas. A pro
 - npm (gerenciador de pacotes do Node)
 - Python 3.7 ou superior
 - pip (gerenciador de pacotes do Python)
+
 
 ## Configuração de Ambiente 
 
